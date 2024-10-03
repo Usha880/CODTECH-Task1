@@ -12,22 +12,22 @@
 
 #**Mentor**: Neela Santhosh Kumar 
 
-**Overview of the Project**
+###**Overview of the Project**
 
-**Project**: STUDENT DATABASE MANAGEMENT 
+##**Project**: STUDENT DATABASE MANAGEMENT 
 
-**Objective**
+##**Objective**
 
 The objective of this project is to create tables for student database management like students, courses and enrolments tables. The aim is to implement the join operations to combine data from multiple tables.
 
-**Key Activities**
+##**Key Activities**
 
 **Creating Tables**: Creating the tables like students, courses and enrolments.
 **Data Insertion**: Inserting values into tables with specified datatypes.
 **Queries**: I implemented some queries to retrieve data.
 **Joins**: performed join operations to combine data from multiple tables.
 
-**Technologies Used **
+##**Technologies Used**
 
 SQL Workbench 
 
