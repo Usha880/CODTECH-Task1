@@ -1,0 +1,135 @@
+/*
+STUDENT DATABASE MANAGEMENT
+ I created students,courses and enrollments tables and inserted values into the tables ,each table
+consists of 10 rows and implemented some queries and joins on these tables
+*/
+
+
+
+create database codtech;
+
+use codtech;
+
+create table students(
+sid int primary key,
+ sname varchar(20),
+ address varchar(50), 
+ email varchar(15),
+ phno int(10)
+ ); 
+ 
+ create table courses(
+ cid int primary key,
+ cname varchar(20),
+ credits int,
+ department varchar(20)
+ );
+ 
+ create table enrollments(
+ sid int,
+ cid int,
+ primary key(sid,cid),
+ grade varchar(5),
+ foreign key(sid) references students(sid),
+ foreign key(cid) references courses(cid)
+ );
+ 
+ 
+ Insert into students values(501,'usha','kodad','us@gmail.com',1234534567);
+ Insert into students values(502,'supriya','khammam','su@gmail.com',678912345);
+ Insert into students values(503,'ushasri','kodad','ush@gmail.com',234512345);
+ Insert into students values(504,'triveni','hyd','tri@gmail.com',345678976);
+ Insert into students values(505,'nandu','hyd','nan@gmail.com',789010985);
+ Insert into students values(506,'prathyusha','khammam','pra@gmail.com',123453456);
+ Insert into students values(507,'teju','srpt','tej@gmail.com',123455679);
+ Insert into students values(508,'vijay','kodad','vi@gmail.com',123412345);
+ Insert into students values(509,'vamshi','srpt','usha@123',807867088);
+ Insert into students values(510,'yathin','srpt','ya@gmail.com',124567890);
+ 
+ select * from students;
+
+ desc students;
+
+insert into courses values(101,'DBMS',10,'CSE');
+insert into courses values(201,'NA',8,'ECE');
+insert into courses values(102,'AI',10,'CSE');
+insert into courses values(103,'ML',15,'CSE');
+insert into courses values(104,'cyber',10,'CSE');
+insert into courses values(301,'DE',6,'EEE');
+insert into courses values(401,'SA',6,'CIVIL');
+insert into courses values(105,'DS',8,'CSE');
+insert into courses values(202,'DCCN',10,'ECE');
+insert into courses values(501,'MD',10,'CSE');
+
+
+select * from courses;
+
+desc courses;
+
+
+insert into enrollments values(505,202,'A');
+insert into enrollments values(508,103,'B');
+insert into enrollments values(502,102,'C');
+insert into enrollments values(510,104,'B');
+insert into enrollments values(504,301,'D');
+insert into enrollments values(503,401,'C');
+insert into enrollments values(507,501,'B');
+insert into enrollments values(509,201,'A');
+insert into enrollments values(506,105,'A');
+insert into enrollments values(501,101,'A');
+
+select * from enrollments;
+
+desc enrollments;
+
+-- Managing student records with some SQL queries
+
+select * from students where sid=501;
+select * from courses where cname like 'D%';
+select lower(sname) from students;
+select upper(cname) from courses;
+select * from enrollments where sid between 501 and 505;
+select * from courses where credits IN(10,8);
+
+
+-- Implementing joins to combine data from multiple tables
+-- retrieving student id,names and students who are having 'A' grades 
+
+select s.sid, s.sname, e.grade
+from students s
+join enrollments e on s.sid=e.sid
+where e.grade ='A';
+
+
+-- retrieving student id,names,course id ,names and students who are having credits 10
+
+select s.sid, s.sname, c.cid, c.cname, c.credits 
+from students s
+join enrollments e on s.sid=e.sid
+join courses c on e.cid=c.cid
+where c.credits =10;
+
+-- retrieving student id,names and address whos names starts with v 
+
+select e.sid, s.sname, s.address
+from students s
+inner join enrollments e on s.sid=e.sid
+where sname like 'v%';
+
+-- retrieving course name,department,grades of students who belongs to cse department and A grade.
+
+select c.cname, c.department ,e.grade
+from courses c
+right join enrollments e on e.cid=c.cid
+where c.department='CSE' and e.grade='A';
+
+ 
+
+
+
+
+
+
+
+
+
