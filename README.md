@@ -1,11 +1,16 @@
 # CODTECH-Task1
 
-**Name**: Usha Mandapalli
-**Company**: CODTECH IT SOLUTIONS
-**ID**: CT08DS8665
-**Domain**: SQL
-**Duration**: September 30th to October 30th
-**Mentor**: Neela Santhosh Kumar 
+#**Name**: Usha Mandapalli
+
+#**Company**: CODTECH IT SOLUTIONS
+
+#**ID**: CT08DS8665
+
+#**Domain**: SQL
+
+#**Duration**: September 30th to October 30th
+
+#**Mentor**: Neela Santhosh Kumar 
 
 **Overview of the Project**
 
